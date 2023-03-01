@@ -112,8 +112,7 @@ console.log("Mongo is connected !!!  ");
 //   }
 // ]
 
-const PORT = process.env
-.PORT;
+const PORT = process.env.PORT;
 app.get("/movies", async function (request, response) {
   const movies= await client.db('mongodb&node').collection('movies').find({}).toArray()
   response.send(movies);
