@@ -6,6 +6,8 @@ dotenv.config()
 import express from "express";
 import { MongoClient } from "mongodb";
 import moviesRouter from './Routers/movies.router.js';
+import  Cors  from 'cors';
+
 
 const app = express();
 
@@ -25,6 +27,7 @@ console.log("Mongo is connected !!!  ");
 
 const PORT = process.env.PORT;
 
+app.use(Cors())
 app.use("/movies",moviesRouter);
 
 app.get("/", function (request, response) {
